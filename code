@@ -1,0 +1,33 @@
+<a-scene background="color:#90caf9">
+<a-plane 
+id="ground" color="#78909c" width="200" height="100" rotation="-90 0 0"
+></a-plane>
+
+<a-entity id="posters-container" comics-posters> </a-entity>
+
+<a-camera id="camera" wasd-controls="enabeld:false;" position="0 10 20"> </a-camera>
+
+<a-entity
+id="app-title"
+position="0 0.73 -1"
+text="font:exo2bold ; allign: center ; width: 2 ; color:#000000 value: virtual comics store !"
+></a-entity>
+
+<a-entity
+id="app-subtitle"
+position="0 -0.1 0"
+text="font: dejavu: allign: center; width: 1; color: #0f184e; value: Get Your Favorite Comics"
+></a-entity>
+
+createPoster: function(item) {
+    const entityEl = document.createElement("a-entity");
+    entityEl.setAttribute("visible", true);
+    entityEl.setAttribute("geometry",{
+        primitive:"plane",
+        width:20,
+        height:28
+    });
+
+    entityEl.setAttribute("position", {x::0, y:5 ,z:0.1});
+    entityEl.setAttribute("material", {src: item.url})
+}
